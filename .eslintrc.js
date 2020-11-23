@@ -3,12 +3,21 @@ module.exports = {
     commonjs: true,
     es2021: true,
     node: true,
+    jest: true,
   },
-  extends: ["standard", "prettier"],
+  extends: ['standard', 'prettier'],
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 12,
+    sourceType: 'module',
+    allowImportExportEverywhere: false,
+    ecmaFeatures: {
+      globalReturn: false,
+    },
+    babelOptions: {
+      configFile: './babel.config.json',
+    },
   },
   rules: {
-    "max-len": ["error", { code: 100 }],
+    'max-len': ['error', { code: 100 }],
   },
-};
+}
